@@ -7,19 +7,15 @@ public class main {
         String name = console.nextLine();
         String[] arrSplit = name.split(" ");
         ArrayList<String> repet = new ArrayList<>();
-        HashSet<String> need= new HashSet<String>();
+        LinkedHashSet<String> need= new LinkedHashSet<>();
         Collections.addAll(repet, arrSplit);
         Collections.addAll(need, arrSplit);
-        for(int i=0; i<arrSplit.length;i++)
+        for(int i=0; i<need.size();i++)
         {
-            int count = Collections.frequency(repet, arrSplit[i]);
-            System.out.println(arrSplit[i] + ": " + count);
+            int count = Collections.frequency(repet, need.toArray()[i]);
+            System.out.println(need.toArray()[i] + ": " + count);
         }
         String outhelp=new String();
-        for(int i=0; i<arrSplit.length;i++)
-        {
-            int count = Collections.frequency(repet, arrSplit[i]);
-        }
         for(int i=0; i<need.size(); i++){
             outhelp+=need.toArray()[i]+" ";
         }

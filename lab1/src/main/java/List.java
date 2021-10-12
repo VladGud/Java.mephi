@@ -138,7 +138,7 @@ public class List {
      * @param head Список с которым мы будем объеденять
      * @return Возвращает итоговый объедененный список
      */
-    Object[] merge(Object[] head){
+    public Object[] merge(Object[] head){
         Arrays.sort(arrayList);
         Arrays.sort(head);
         int nsize=arrayList.length+head.length;
