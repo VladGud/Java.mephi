@@ -26,12 +26,8 @@ public class ApplicationLambda {
         for (int i = 0; i < 3; i++) {
             list.add(employeeSupplier.get());
         }
-        list.stream().forEach(t -> employeeConsumer.accept(employeeFunction.apply(t)));
         System.out.println("Find Surname: Snow");
-        for (int i = 0; i < list.size(); i++) {
-            if (employeeBiPredicate.test(list.get(i), "Snow") == true) {
-                employeeConsumer.accept(employeeFunction.apply(list.get(i)));
-            }
-        }
+        list.stream().filter(t -> employeeBiPredicate.test(t, "Snow"))
+                .forEach(t -> employeeConsumer.accept(employeeFunction.apply(t)));
     }
 }

@@ -1,6 +1,6 @@
-public class main {
-    public static void main(String... args){
-        Employee employee= new Employee.Builder()
+public class Main {
+    public static void main(String... args) {
+        Employee employee = new Employee.Builder()
                 .withGivenName("Gud")
                 .withSurName("Snow")
                 .withAge(40)
@@ -9,31 +9,16 @@ public class main {
                 .build();
         System.out.println(employee.toString());
         Accountant accountant = new Accountant();
-        var list= employee.createShortList();
+        var list = employee.createShortList();
         System.out.println("\n#################################################################################\n");
-        for(int i=0; i<list.size();i++) {
-            if(list.get(i).getGender()==Gender.FEMALE)
-                accountant.payPremium(list.get(i));
-        }
+        list.stream().filter(t-> t.getGender() == Gender.FEMALE).forEach(t->accountant.payPremium(t));
         System.out.println("\n#################################################################################\n");
-        for(int i=0; i<list.size();i++) {
-            if(list.get(i).getDept()=="Security")
-                accountant.paySalary(list.get(i));
-        }
+        list.stream().filter(t->t.getDept() == "Security").forEach(t->accountant.paySalary(t));
         System.out.println("\n#################################################################################\n");
-        for(int i=0; i<list.size();i++) {
-            if(list.get(i).getDept()=="Security" && list.get(i).getAge()>30)
-                accountant.payPremium(list.get(i));
-        }
+        list.stream().filter(t->t.getDept() == "Security" && t.getAge() > 30).forEach(t->accountant.payPremium(t));
         System.out.println("\n#################################################################################\n");
-        for(int i=0; i<list.size();i++) {
-            if(list.get(i).getRole()==Role.MANAGER)
-                accountant.paySalary(list.get(i));
-        }
+        list.stream().filter(t->t.getRole() == Role.MANAGER).forEach(t->accountant.paySalary(t));
         System.out.println("\n#################################################################################\n");
-        for(int i=0; i<list.size();i++) {
-            if(list.get(i).getRole()==Role.STAFF)
-                accountant.payPremium(list.get(i));
-        }
+        list.stream().filter(t->t.getRole() == Role.STAFF).forEach(t->accountant.payPremium(t));
     }
 }

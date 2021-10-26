@@ -1,10 +1,11 @@
 import java.util.*;
+
 public class Employee {
-    private  String givenName;
-    private  String surName;
-    private  int age;
-    private  Gender gender;
-    private  Role role;
+    private String givenName;
+    private String surName;
+    private int age;
+    private Gender gender;
+    private Role role;
     private String dept;
     private String email;
     private String phone;
@@ -12,6 +13,9 @@ public class Employee {
     private String city;
     private String state;
     private int code;
+
+    private Employee() {
+    }
 
     public String getGivenName() {
         return givenName;
@@ -61,108 +65,119 @@ public class Employee {
         return code;
     }
 
-    public static class Builder{
+    public static class Builder {
         private Employee newEmployee;
-        public Builder(){
-            newEmployee=new Employee();
+
+        public Builder() {
+            newEmployee = new Employee();
         }
-        public Builder withGivenName(String givenName){
-            newEmployee.givenName=givenName;
+
+        public Builder withGivenName(String givenName) {
+            newEmployee.givenName = givenName;
             return this;
         }
-        public Builder withSurName(String surName){
-            newEmployee.surName=surName;
+
+        public Builder withSurName(String surName) {
+            newEmployee.surName = surName;
             return this;
         }
-        public Builder withAge(int age){
-            newEmployee.age=age;
+
+        public Builder withAge(int age) {
+            newEmployee.age = age;
             return this;
         }
-        public Builder withGender(Gender gender){
-            newEmployee.gender=gender;
+
+        public Builder withGender(Gender gender) {
+            newEmployee.gender = gender;
             return this;
         }
-        public Builder withRole(Role role){
-            newEmployee.role=role;
+
+        public Builder withRole(Role role) {
+            newEmployee.role = role;
             return this;
         }
-        public Builder withDept(String dept){
-            newEmployee.dept=dept;
+
+        public Builder withDept(String dept) {
+            newEmployee.dept = dept;
             return this;
         }
-        public Builder withEmail(String email){
-            newEmployee.email=email;
+
+        public Builder withEmail(String email) {
+            newEmployee.email = email;
             return this;
         }
-        public Builder withPhone(String phone){
-            newEmployee.phone=phone;
+
+        public Builder withPhone(String phone) {
+            newEmployee.phone = phone;
             return this;
         }
-        public Builder withAddress(String address){
-            newEmployee.address=address;
+
+        public Builder withAddress(String address) {
+            newEmployee.address = address;
             return this;
         }
-        public Builder withCity(String city){
-            newEmployee.city=city;
+
+        public Builder withCity(String city) {
+            newEmployee.city = city;
             return this;
         }
-        public Builder withState(String state){
-            newEmployee.state=state;
+
+        public Builder withState(String state) {
+            newEmployee.state = state;
             return this;
         }
-        public Builder withCode(int code){
-            newEmployee.code=code;
+
+        public Builder withCode(int code) {
+            newEmployee.code = code;
             return this;
         }
-        public Employee build(){
+
+        public Employee build() {
             return newEmployee;
         }
     }
+
     @Override
-    public String toString(){
+    public String toString() {
         String ss = "Employee [";
-        if(givenName!=null) {
+        if (givenName != null) {
             ss += "givenName='" + givenName + '\'';
         }
-        if(surName!=null){
-            ss+= ", surName='" + surName + '\'' ;
+        if (surName != null) {
+            ss += ", surName='" + surName + '\'';
         }
-        if(age!=0){
-            ss+=", age=" + age + '\'';
+        if (age != 0) {
+            ss += ", age=" + age + '\'';
         }
-        if(gender!=null) {
-            ss += ", gender=" + gender+ '\'';
+        if (gender != null) {
+            ss += ", gender=" + gender + '\'';
         }
-        if(role!=null)
-        {
-            ss+=", role=" + role + '\'';
+        if (role != null) {
+            ss += ", role=" + role + '\'';
         }
-        if(dept!=null)
-        {
-           ss+= ", email='" + email + '\'';
+        if (dept != null) {
+            ss += ", email='" + email + '\'';
         }
-        if(phone!=null)
-        {
-            ss+=", phone='" + phone + '\'';
+        if (phone != null) {
+            ss += ", phone='" + phone + '\'';
         }
-        if(address!=null)
-        {
-            ss+=", address='" + address + '\'';
+        if (address != null) {
+            ss += ", address='" + address + '\'';
         }
-        if(city!=null)
-        {
-            ss+=", city='" + city + '\'';
+        if (city != null) {
+            ss += ", city='" + city + '\'';
         }
-        if(state!=null){
-            ss+=", state='" + state + '\'';
+        if (state != null) {
+            ss += ", state='" + state + '\'';
         }
-        if(code!=0){
-            ss+=", code=" + code;
+        if (code != 0) {
+            ss += ", code=" + code;
         }
-        ss+=']';
+        ss += ']';
         return ss;
     }
-    public List<Employee> createShortList(){
+
+    public List<Employee> createShortList() {
         List<Employee> list = new ArrayList<>();
         list.add(new Employee.Builder()
                 .withAge(46)
@@ -258,25 +273,5 @@ public class Employee {
                 .build());
         return list;
 
-    }
-}
-enum Gender
-{
-    MALE,
-    FEMALE
-}
-enum Role
-{
-    STAFF(10000),
-    MANAGER(20000),
-    EXECUTIVE(30000);
-
-    private final int salary;
-    Role(int salary){
-        this.salary=salary;
-    }
-
-    public int getSalary() {
-        return salary;
     }
 }
